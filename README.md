@@ -61,8 +61,8 @@ Python · pandas · NumPy · scikit-learn · Matplotlib · Seaborn · Plotly · 
 ## How to Run
 
 ```bash
-git clone https://github.com/Dt-Ansari07/automobile-price-prediction.git
-cd automobile-price-prediction
+git clone https://github.com/Dt-Ansari07/Automobile-Price-Prediction-Analysis.git
+cd Automobile-Price-Prediction-Analysis
 pip install -r requirements.txt
 jupyter notebook notebooks/automobile_price_prediction.ipynb
 ```
@@ -72,7 +72,7 @@ Data files are already included in `data/` (~5 MB total), so the notebook runs e
 ## Project Structure
 
 ```
-automobile-price-prediction/
+Automobile-Price-Prediction-Analysis/
 ├── data/                              # 9 brand-wise CSVs (audi, bmw, ford, hyundi, merc, skoda, toyota, vauxhall, vw)
 ├── notebooks/
 │   └── automobile_price_prediction.ipynb
