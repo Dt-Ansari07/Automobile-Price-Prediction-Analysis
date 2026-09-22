@@ -35,10 +35,15 @@ Used-car pricing is inconsistent across brands, models and sellers. This project
 
 | Model | Test R² | Test MAE (£) | Test RMSE (£) | Test RMSLE |
 |---|---|---|---|---|
-| **Random Forest — Default Parameters** | **0.9624** | **1,157.67** | **1,928.72** | **0.1025** |
-| Random Forest — Tuned (RandomizedSearchCV) | 0.9387 | 1,322.36 | 2,462.05 | 0.1153 |
+| Random Forest — Default Parameters | 0.9621 | 1,157.95 | 1,934.93 | 0.1027 |
+| Random Forest — Tuned (RandomizedSearchCV) | 0.9621 | **1,122.51** | 1,935.36 | **0.0996** |
 
-The **default-parameter Random Forest was the better model** on the held-out test set — see the notebook's Conclusion section for the full explanation and business insights (top price drivers, limitations, next steps).
+The two models are essentially **tied on R² and RMSE**, while tuning gives a small, real edge on MAE and RMSLE (~3% lower each) and — more importantly — a smaller train/test R² gap (0.021 vs. 0.032), meaning the tuned model generalizes slightly better. See the notebook's Conclusion section for the full explanation and business insights (top price drivers, limitations, next steps).
+
+*(Both models are now seeded with `random_state=42` for reproducibility — earlier runs without a fixed seed varied noticeably between re-runs.)*
+
+### Model Performance Comparison
+![Model Performance Comparison](images/model_performance_comparison.png)
 
 ### Top 10 Feature Importances
 ![Feature Importance](images/feature_importance.png)
@@ -71,6 +76,9 @@ automobile-price-prediction/
 ├── data/                              # 9 brand-wise CSVs (audi, bmw, ford, hyundi, merc, skoda, toyota, vauxhall, vw)
 ├── notebooks/
 │   └── automobile_price_prediction.ipynb
+├── src/
+│   ├── evaluation.py                  # reusable model-evaluation helper
+│   └── plotting.py                    # shared chart style + plotting functions
 ├── images/                            # exported charts used in this README
 ├── requirements.txt
 ├── .gitignore
